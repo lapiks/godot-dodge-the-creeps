@@ -14,6 +14,8 @@ func _process(delta):
 
 
 func game_over():
+	$Music.stop()
+	$DeathSound.play()
 	$ScoreTimer.stop()
 	$MobTimer.stop()
 	$HUD.show_game_over()
@@ -26,6 +28,7 @@ func new_game():
 	$HUD.show_message("Get Ready")
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
+	$Music.play()
 
 
 func _on_mob_timer_timeout():
